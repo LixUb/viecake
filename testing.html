@@ -73,20 +73,33 @@
         .photo-item {
             background: rgba(255, 255, 255, 0.8);
             border-radius: 15px;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
             color: #2c3e50;
-            font-size: 60px;
             height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
             transition: transform 0.3s ease;
+            overflow: hidden;
         }
 
         .photo-item:hover {
             transform: scale(1.05);
+        }
+
+        .photo-item img {
+            max-width: 100%;
+            max-height: 140px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo-item .emoji-placeholder {
+            font-size: 60px;
+            margin-bottom: 10px;
         }
 
         .photo-caption {
@@ -116,6 +129,16 @@
             box-shadow: 0 8px 25px rgba(255, 107, 157, 0.6);
         }
 
+        .photo-upload-note {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-size: 14px;
+            border: 2px dashed #ff6b9d;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 20px;
@@ -132,6 +155,14 @@
             
             .photo-gallery {
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .photo-item {
+                height: 180px;
+            }
+
+            .photo-item img {
+                max-height: 120px;
             }
         }
     </style>
@@ -191,46 +222,82 @@
         </div>
 
         <div class="section">
-            <h2>😄 Funny Photos Collection</h2>
+            <h2>📸 Photos Collection</h2>
+            <div class="photo-upload-note">
+                <strong>📝 Cara memasukkan foto:</strong><br>
+                1. Buat folder bernama "photos" di folder yang sama dengan file HTML ini<br>
+                2. Masukkan foto-foto ke folder "photos" dengan nama sesuai yang ada di kode<br>
+                3. Format yang didukung: JPG, PNG, JPEG<br>
+                4. Kalau foto tidak ada, akan muncul emoji sebagai placeholder
+            </div>
             <div class="photo-gallery">
+                <!-- Foto 1: Kaka lagi bad mood -->
                 <div class="photo-item">
-                    <img src="img/cute.jpeg" alt="img">
+                    <img src="photos/bad_mood.jpg" alt="Bad mood" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="emoji-placeholder" style="display:none;">😤</div>
                     <div class="photo-caption">Kaka lagi bad mood</div>
                 </div>
+                
+                <!-- Foto 2: Kaka lagi ngoding -->
                 <div class="photo-item">
-                    😴
+                    <img src="photos/coding.jpg" alt="Ngoding" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="emoji-placeholder" style="display:none;">💻</div>
                     <div class="photo-caption">Kaka lagi ngoding</div>
                 </div>
+                
+                <!-- Foto 3: Kaka lagi makan -->
                 <div class="photo-item">
-                    🍕
+                    <img src="photos/eating.jpg" alt="Makan" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="emoji-placeholder" style="display:none;">🍕</div>
                     <div class="photo-caption">Kaka lagi lapar</div>
                 </div>
+                
+                <!-- Foto 4: Kaka lagi gaming -->
                 <div class="photo-item">
-                    🎮
+                    <img src="photos/gaming.jpg" alt="Gaming" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="emoji-placeholder" style="display:none;">🎮</div>
                     <div class="photo-caption">Kaka lagi gaming</div>
                 </div>
+                
+                <!-- Foto 5: Kaka lagi selfie -->
                 <div class="photo-item">
-                    📱
-                    <div class="photo-caption">Kaka lagi stalking</div>
+                    <img src="photos/selfie.jpg" alt="Selfie" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="emoji-placeholder" style="display:none;">🤳</div>
+                    <div class="photo-caption">Kaka lagi narcis</div>
                 </div>
+                
+                <!-- Foto 6: Kaka lagi ngopi -->
                 <div class="photo-item">
-                    ☕
+                    <img src="photos/coffee.jpg" alt="Ngopi" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="emoji-placeholder" style="display:none;">☕</div>
                     <div class="photo-caption">Kaka lagi ngopi</div>
                 </div>
+                
+                <!-- Foto 7: Kaka lagi ketawa -->
                 <div class="photo-item">
-                    😂
+                    <img src="photos/laughing.jpg" alt="Ketawa" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="emoji-placeholder" style="display:none;">😂</div>
                     <div class="photo-caption">Kaka lagi ketawa</div>
                 </div>
+                
+                <!-- Foto 8: Kaka lagi tidur -->
                 <div class="photo-item">
-                    🎵
-                    <div class="photo-caption">Kaka lagi dengerin musik</div>
+                    <img src="photos/sleeping.jpg" alt="Tidur" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="emoji-placeholder" style="display:none;">😴</div>
+                    <div class="photo-caption">Kaka lagi ngantuk</div>
                 </div>
+                
+                <!-- Foto 9: Kaka lagi shopping -->
                 <div class="photo-item">
-                    🛍️
+                    <img src="photos/shopping.jpg" alt="Shopping" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="emoji-placeholder" style="display:none;">🛍️</div>
                     <div class="photo-caption">Kaka lagi shopping</div>
                 </div>
+                
+                <!-- Foto 10: Birthday special -->
                 <div class="photo-item">
-                    🎂
+                    <img src="photos/birthday.jpg" alt="Birthday" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="emoji-placeholder" style="display:none;">🎂</div>
                     <div class="photo-caption">Kaka hari ini!</div>
                 </div>
             </div>
