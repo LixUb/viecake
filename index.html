@@ -363,7 +363,6 @@
             }
         }
 
-        /* Responsive design */
         @media (max-width: 480px) {
             .container {
                 padding: 30px 20px;
@@ -480,19 +479,15 @@
             targetDate.setHours(0, 0, 0, 0);
             
             if (today >= targetDate) {
-                // Show riddle for password
                 document.getElementById('protectionTitle').textContent = '🎉 Selamat Datang!';
                 document.getElementById('protectionMessage').textContent = 'Untuk masuk, jawab teka-teki ini:';
                 document.getElementById('riddleSection').style.display = 'block';
             } else {
-                // Show date restriction message
                 const daysLeft = Math.ceil((targetDate - today) / (1000 * 60 * 60 * 24));
                 document.getElementById('protectionMessage').innerHTML = 
                     `<span class="date-error">sabar yaa kak belum waktunya coyy<br></span>`;
             }
         }
-
-        // Check password
         function checkPassword() {
             const password = document.getElementById('passwordInput').value.toLowerCase().trim();
             const correctPassword = 'kopi';
@@ -501,22 +496,18 @@
                 // Hide protection screen and show main content
                 document.getElementById('protectionScreen').style.display = 'none';
                 document.getElementById('mainContent').style.display = 'block';
-                
-                // Initialize main website functionality
+
                 initializeMainWebsite();
             } else {
-                // Show error message
                 document.getElementById('errorMessage').style.display = 'block';
                 document.getElementById('passwordInput').value = '';
                 
-                // Hide error message after 3 seconds
                 setTimeout(() => {
                     document.getElementById('errorMessage').style.display = 'none';
                 }, 3000);
             }
         }
 
-        // Allow Enter key to submit password
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('passwordInput').addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
@@ -525,7 +516,6 @@
             });
         });
 
-        // Initialize main website functionality
         function initializeMainWebsite() {
             const maybeButton = document.getElementById("maybe-later");
             const celebrateButton = document.getElementById("celebrate");
