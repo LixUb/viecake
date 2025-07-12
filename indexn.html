@@ -593,7 +593,7 @@
             {
                 question: "Makanan apa yang pembuat gak suka",
                 options: ["Sayur", "Ikan", "Makanan kucing", "Olahan Keledai"],
-                correct: 0,
+                correct: 3,
                 hint: "yaudah wkwkkw"
             },
             {
@@ -639,13 +639,13 @@
 
         function checkAccess() {
             const today = new Date();
-            const targetDate = new Date('2025-06-29');
+            const targetDate = new Date('2025-08-24');
             
             // Reset time to compare only dates
             today.setHours(0, 0, 0, 0);
             targetDate.setHours(0, 0, 0, 0);
             
-            if (today != targetDate) {
+            if (today >= targetDate) {
                 // Show questions
                 document.getElementById('protectionTitle').textContent = '🎉 Selamat Datang!';
                 document.getElementById('protectionMessage').textContent = 'Jawab 10 pertanyaan ini untuk masuk:';
@@ -840,12 +840,12 @@
         function goToSpecialPage() {
             // Create and redirect to special page
             const specialPageContent = `
-<!DOCTYPE html>
+            <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koleksi Spesial untuk Vira</title>
+    <title>yayyyyy</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -915,20 +915,33 @@
         .photo-item {
             background: rgba(255, 255, 255, 0.8);
             border-radius: 15px;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
             color: #2c3e50;
-            font-size: 60px;
             height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
             transition: transform 0.3s ease;
+            overflow: hidden;
         }
 
         .photo-item:hover {
             transform: scale(1.05);
+        }
+
+        .photo-item img {
+            max-width: 100%;
+            max-height: 140px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo-item .emoji-placeholder {
+            font-size: 60px;
+            margin-bottom: 10px;
         }
 
         .photo-caption {
@@ -958,6 +971,16 @@
             box-shadow: 0 8px 25px rgba(255, 107, 157, 0.6);
         }
 
+        .photo-upload-note {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-size: 14px;
+            border: 2px dashed #ff6b9d;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 20px;
@@ -975,6 +998,14 @@
             .photo-gallery {
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
+
+            .photo-item {
+                height: 180px;
+            }
+
+            .photo-item img {
+                max-height: 120px;
+            }
         }
     </style>
 </head>
@@ -982,98 +1013,82 @@
     <button class="back-btn" onclick="history.back()">← Kembali</button>
     
     <div class="container">
-        <h1>🎁 Konten Spesial 🎁</h1>
+        <h1>🎁 apa yaa hmm 🎁</h1>
         
         <div class="section">
-            <h2>💕 Confessions</h2>
+            <h2>Confessions</h2>
             <div class="confession-item">
                 <strong>Confession #1:</strong><br>
-                Sebenarnya aku selalu suka cara kamu ketawa, kedengeran tulus banget dan bikin orang lain ikut seneng juga! 😊
-            </div>
-            <div class="confession-item">
-                <strong>Confession #2:</strong><br>
-                Kamu itu orangnya sabar banget loh kak, aku suka cara kamu ngadepin masalah dengan kepala dingin. Keren! 🌟
-            </div>
-            <div class="confession-item">
-                <strong>Confession #3:</strong><br>
-                Aku admire banget sama kamu yang selalu supportive sama orang-orang terdekat. You're such a good friend! 💖
-            </div>
-            <div class="confession-item">
-                <strong>Confession #4:</strong><br>
-                Secret: Aku sering mikir "I wish I could be as cool as Vira" karena kamu selalu keliatan confident! ✨
+                gak ada yang mau aku akuin sih intinya tuh aku suka akakk:), yaa kalo akakk nyadar sih dah lama dari... ngucapin HBD pertama maybe
             </div>
         </div>
 
         <div class="section">
-            <h2>📝 Poems for You</h2>
-            <div class="poem-item">
-                <strong>"Untuk Kaka Vira"</strong><br><br>
-                Di hari spesialmu yang ke-19,<br>
-                Aku mau bilang sesuatu yang tulus,<br>
-                Kamu itu teman yang luar biasa,<br>
-                Selalu ada saat dibutuhkan.<br><br>
-                
-                Semoga tahun ini penuh berkah,<br>
-                Impianmu tercapai semua,<br>
-                Happy birthday, dear Vira,<br>
-                You deserve all the happiness! 🎉
+            <h2>📸 Photos Collection</h2>
+            <div class="photo-upload-note">
+                <strong>ini foto foto kakak hehehehe:</strong><br>
+                1. Gak boleh protes karna ini cantik banget
+                2. Semua foto kakak lucu semua hehehe<br>
             </div>
-            <div class="poem-item">
-                <strong>"19 Wishes"</strong><br><br>
-                19 lilin untuk 19 wish,<br>
-                Semoga hidup selalu fresh,<br>
-                Sehat selalu, bahagia terus,<br>
-                Rezeki lancar tanpa putus.<br><br>
-                
-                Maaf ya puisinya agak cheesy,<br>
-                Tapi ini dari hati yang sincere,<br>
-                Happy birthday once again,<br>
-                May your day be super clear! ✨
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>😄 Funny Photos Collection</h2>
             <div class="photo-gallery">
                 <div class="photo-item">
-                    🤡
-                    <div class="photo-caption">Kaka lagi bad mood</div>
+                    <img src="photos/bad_mood.png" alt="Bad mood" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="emoji-placeholder" style="display:none;">😤</div>
+                    <div class="photo-caption">My Fav sih kakk</div>
                 </div>
+                
                 <div class="photo-item">
-                    😴
-                    <div class="photo-caption">Kaka lagi ngoding</div>
+                    <img src="photos/love.jpeg" alt="Ngoding" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="emoji-placeholder" style="display:none;">💻</div>
+                    <div class="photo-caption">lucu kann kak</div>
                 </div>
+
                 <div class="photo-item">
-                    🍕
-                    <div class="photo-caption">Kaka lagi lapar</div>
+                    <img src="photos/kopi.jpeg" alt="Makan" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="emoji-placeholder" style="display:none;">🍕</div>
+                    <div class="photo-caption">ini ngide banget</div>
                 </div>
+
                 <div class="photo-item">
-                    🎮
-                    <div class="photo-caption">Kaka lagi gaming</div>
+                    <img src="photos/smile.jpeg" alt="Gaming" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="emoji-placeholder" style="display:none;">🎮</div>
+                    <div class="photo-caption">lucu banget sihh kak</div>
                 </div>
+
                 <div class="photo-item">
-                    📱
-                    <div class="photo-caption">Kaka lagi stalking</div>
+                    <img src="photos/ngumpul.jpeg" alt="Selfie" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="emoji-placeholder" style="display:none;">🤳</div>
+                    <div class="photo-caption">akhirnya gak wacana wkwkwk</div>
                 </div>
+
                 <div class="photo-item">
-                    ☕
-                    <div class="photo-caption">Kaka lagi ngopi</div>
+                    <img src="photos/malas.jpeg" alt="Ngopi" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="emoji-placeholder" style="display:none;">☕</div>
+                    <div class="photo-caption">malass</div>
                 </div>
+
                 <div class="photo-item">
-                    😂
-                    <div class="photo-caption">Kaka lagi ketawa</div>
+                    <img src="photos/angry.jpeg" alt="Ketawa" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="emoji-placeholder" style="display:none;">😂</div>
+                    <div class="photo-caption">eummm....</div>
                 </div>
+
                 <div class="photo-item">
-                    🎵
-                    <div class="photo-caption">Kaka lagi dengerin musik</div>
+                    <img src="photos/cute.jpeg" alt="Tidur" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="emoji-placeholder" style="display:none;">😴</div>
+                    <div class="photo-caption">lucuu banget gak kuat</div>
                 </div>
+
                 <div class="photo-item">
-                    🛍️
-                    <div class="photo-caption">Kaka lagi shopping</div>
+                    <img src="photos/eye.jpeg" alt="Shopping" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="emoji-placeholder" style="display:none;">🛍️</div>
+                    <div class="photo-caption">eakk...keren</div>
                 </div>
+
                 <div class="photo-item">
-                    🎂
-                    <div class="photo-caption">Kaka hari ini!</div>
+                    <img src="photos/candid.jpeg" alt="Birthday" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="emoji-placeholder" style="display:none;">🎂</div>
+                    <div class="photo-caption">candid nihh ingat gak</div>
                 </div>
             </div>
         </div>
@@ -1081,16 +1096,17 @@
         <div class="section" style="text-align: center;">
             <h2>🎉 Final Message</h2>
             <div style="background: rgba(255, 255, 255, 0.8); padding: 30px; border-radius: 15px; color: #2c3e50; font-size: 18px; line-height: 1.6;">
-                <p><strong>Dear Kaka Vira,</strong></p>
-                <p>Semoga di umur 19 ini kamu semakin bahagia, semakin sukses, dan semakin jadi diri sendiri yang amazing!</p>
-                <p>Terima kasih sudah jadi teman yang baik selama ini. Keep being awesome! 🌟</p>
-                <p><strong>Happy 19th Birthday! 🎊💕</strong></p>
-                <p style="margin-top: 20px; font-style: italic;">With love,<br>Your friend who made this weird website 😄</p>
+                <p><strong>Buat akakk,</strong></p>
+                <p>maaf yaa kak gak bisa ngucapin langsung, tapi sekali lagi Happy Birthday kakk semoga apa yang akakk inginkan terkabul yaa</p>
+                <p>makasih kakk selama ini walaupun liburanku singkat tapi seru banget berkat akakk! 🌟</p>
+                <p><strong>sehat sehat yaa kak love youu</strong></p>
+                <p style="margin-top: 20px; font-style: italic;">With love,<br>Your ??? who made this weird website 😄</p>
             </div>
         </div>
     </div>
 </body>
-</html>`;
+</html>
+`;
 
             // Open in new tab
             const newWindow = window.open();
